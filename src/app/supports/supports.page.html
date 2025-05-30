@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Supports (Cahiers)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="supports-container">
+    <ion-card *ngFor="let support of supports" (click)="voirDetails(support)">
+      <img [src]="support.image" [alt]="support.nom">
+
+      <ion-card-content>
+        <ion-card-title>{{ support.nom }}</ion-card-title>
+
+        <div class="description">{{ support.description }}</div>
+        <div class="details">{{ support.type }}</div>
+
+        <div class="rating">
+          <span class="stars">{{ getStars(support.note) }}</span>
+          <span class="avis-count">{{ support.avis }}</span>
+        </div>
+
+        <div class="price">{{ support.prix | number }} FCFA</div>
+
+        <ion-button
+          expand="block"
+          color="primary"
+          (click)="ajouterAuPanier(support); $event.stopPropagation()"
+          class="add-to-cart">
+          Ajouter au panier
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

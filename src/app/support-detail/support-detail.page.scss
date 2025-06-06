@@ -1,0 +1,125 @@
+:host {
+  --ion-background-color: #ffffff;
+}
+
+ion-content {
+  --background: #ffffff;
+  color: #000000;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #ffffff;
+  color: #000000;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .info-section {
+    flex: 2;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .type {
+      font-style: italic;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      font-size: 14px;
+      margin-bottom: 10px;
+      .stars {
+        color: #ffc107;
+        font-size: 16px;
+      }
+      .avis {
+        margin-left: 10px;
+        color: #555;
+      }
+    }
+
+    .description,
+    .qualite,
+    .pages {
+      font-size: 15px;
+      margin: 5px 0;
+    }
+
+    .prix-section {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+
+      h1 {
+        color: #ffbf00;
+        font-size: 26px;
+        margin: 0 0 10px 0;
+      }
+
+      ion-select {
+        margin-left: 10px;
+        width: 80px;
+        color: #000000;
+        --placeholder-color: #333;
+      }
+
+      ion-button {
+        margin-top: 10px;
+        width: fit-content;
+      }
+
+      ion-icon {
+        font-size: 22px;
+        margin-left: 8px;
+      }
+    }
+
+    .livraison-section {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #ffffff;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 4px 0;
+        font-size: 14px;
+      }
+    }
+  }
+}

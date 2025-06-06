@@ -1,0 +1,49 @@
+<ion-content>
+  <div class="detail-container">
+    
+    <!-- Image -->
+    <div class="image-section">
+      <img [src]="support.image" alt="{{ support.nom }}" />
+    </div>
+
+    <!-- Détails -->
+    <div class="info-section">
+      <h2>{{ support.nom }}</h2>
+      <p class="type">{{ support.type }}</p>
+
+      <div class="note">
+        <span class="stars">★★★★★</span>
+        <span class="avis">4.5/5 - 940 avis</span>
+      </div>
+
+      <p class="description">{{ support.description }}</p>
+      <p class="qualite">Qualité : {{ support.qualite }}</p>
+      <p class="pages">Pages : {{ support.nombrePage }}</p>
+
+      <p>Donner votre avis</p>
+      <div class="note-user">
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </div>
+
+      <div class="prix-section">
+        <h1>{{ support.prix }} fcfa</h1>
+        <label>Quantité :</label>
+        <ion-select [(ngModel)]="quantite" interface="popover">
+          <ion-select-option *ngFor="let q of [1,2,3,4,5]" [value]="q">{{ q }}</ion-select-option>
+        </ion-select>
+        <ion-button expand="block" (click)="ajouterAuPanier()">Ajouter au panier</ion-button>
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+
+      <div class="livraison-section">
+        <h3>Informations de livraison</h3>
+        <p>Cameroun, Dschang</p>
+        <p>+237 682 525 919</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

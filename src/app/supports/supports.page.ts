@@ -18,7 +18,7 @@ export interface Support {
   selector: 'app-supports',
   templateUrl: './supports.page.html',
   styleUrls: ['./supports.page.scss'],
-  standalone:false,
+  standalone: false,
 })
 export class SupportsPage {
 
@@ -100,12 +100,14 @@ export class SupportsPage {
   constructor(private router: Router) {}
 
   voirDetails(support: Support) {
-    this.router.navigate(['/support-detail', support.id]);
-  }
+  this.router.navigate(['/support-detail'], {
+    state: { support }
+  });
+}
 
   ajouterAuPanier(support: Support) {
     console.log('Ajout au panier :', support);
-    // TODO: Implémenter la logique du panier
+    // TODO: Implémenter la logique réelle du panier
   }
 
   getStars(note: number): string {

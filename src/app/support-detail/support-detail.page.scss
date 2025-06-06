@@ -4,19 +4,20 @@
 
 ion-content {
   --background: #ffffff;
-  color: #000000;
+  color: #1a1a1a;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .detail-container {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 20px;
   background-color: #ffffff;
-  color: #000000;
+  color: #1a1a1a;
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    gap: 24px;
   }
 
   .image-section {
@@ -27,41 +28,45 @@ ion-content {
 
     img {
       width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 320px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
     }
   }
 
   .info-section {
     flex: 2;
-    padding: 0 20px;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     h2 {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 10px 0;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 12px 0;
+      color: #222;
     }
 
     .type {
       font-style: italic;
       font-size: 16px;
+      color: #666;
       margin-bottom: 10px;
     }
 
     .note {
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: 10px;
+
       .stars {
-        color: #ffc107;
-        font-size: 16px;
+        color: #f5b301;
+        font-size: 18px;
       }
+
       .avis {
         margin-left: 10px;
-        color: #555;
+        color: #777;
       }
     }
 
@@ -69,56 +74,61 @@ ion-content {
     .qualite,
     .pages {
       font-size: 15px;
-      margin: 5px 0;
+      margin: 6px 0;
+      color: #333;
     }
 
     .prix-section {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f8f9fa;
+      margin-top: 24px;
+      padding: 16px;
+      background-color: #ffffff;
       border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 
       h1 {
-        color: #ffbf00;
-        font-size: 26px;
-        margin: 0 0 10px 0;
+        color: #d4a600;
+        font-size: 28px;
+        margin-bottom: 12px;
       }
 
       ion-select {
         margin-left: 10px;
-        width: 80px;
-        color: #000000;
-        --placeholder-color: #333;
+        width: 90px;
+        color: #1a1a1a;
+        --placeholder-color: #444;
       }
 
       ion-button {
-        margin-top: 10px;
+        margin-top: 12px;
         width: fit-content;
+        background-color: #ffd966;
+        color: #000;
       }
 
       ion-icon {
         font-size: 22px;
-        margin-left: 8px;
+        margin-left: 10px;
       }
     }
 
     .livraison-section {
-      margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
       background-color: #ffffff;
 
       h3 {
         font-size: 18px;
         margin-bottom: 10px;
+        color: #444;
       }
 
       p {
-        margin: 4px 0;
+        margin: 5px 0;
         font-size: 14px;
+        color: #555;
       }
     }
   }

@@ -1,6 +1,6 @@
 <ion-content>
   <div class="detail-container">
-    
+
     <!-- Image -->
     <div class="image-section">
       <img [src]="support.image" alt="{{ support.nom }}" />
@@ -13,32 +13,35 @@
 
       <div class="note">
         <span class="stars">★★★★★</span>
-        <span class="avis">4.5/5 - 940 avis</span>
+        <span class="avis">{{ support.note }}/5 - {{ support.avis }} avis</span>
       </div>
 
       <p class="description">{{ support.description }}</p>
       <p class="qualite">Qualité : {{ support.qualite }}</p>
-      <p class="pages">Pages : {{ support.nombrePage }}</p>
+      <p class="pages">Pages : {{ support.pages }}</p>
 
-      <p>Donner votre avis</p>
+      <!-- Bloc d’avis utilisateur -->
+      <p><strong>Donner votre avis :</strong></p>
       <div class="note-user">
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon *ngFor="let star of [1,2,3,4,5]" [name]="star <= userRating ? 'star' : 'star-outline'"
+          (click)="setUserRating(star)" class="clickable-star">
+        </ion-icon>
+        <span class="selected-note" *ngIf="userRating > 0">({{ userRating }}/5)</span>
       </div>
 
+      <!-- Bloc prix / quantité -->
       <div class="prix-section">
-        <h1>{{ support.prix }} fcfa</h1>
+        <h1>{{ total }} fcfa</h1>
         <label>Quantité :</label>
-        <ion-select [(ngModel)]="quantite" interface="popover">
-          <ion-select-option *ngFor="let q of [1,2,3,4,5]" [value]="q">{{ q }}</ion-select-option>
-        </ion-select>
+        <ion-input type="number" min="1" [(ngModel)]="quantite" (ionInput)="onQuantiteChange()" placeholder="1"
+          inputmode="numeric">
+        </ion-input>
+
         <ion-button expand="block" (click)="ajouterAuPanier()">Ajouter au panier</ion-button>
         <ion-icon name="heart-outline"></ion-icon>
       </div>
 
+      <!-- Livraison -->
       <div class="livraison-section">
         <h3>Informations de livraison</h3>
         <p>Cameroun, Dschang</p>

@@ -28,7 +28,7 @@ export class SupportsPage {
       nom: 'Support Spirale',
       image: 'assets/img/support-spirale.jpg',
       qualite: 'Haut de gamme',
-      prix: 4500,
+      prix: 2500,
       description: 'Format A4 - 21x29.7cm',
       pages: 200,
       type: 'Couverture rigide',
@@ -40,7 +40,7 @@ export class SupportsPage {
       nom: 'Support de Dessin',
       image: 'assets/img/support-dessin.jpg',
       qualite: 'Premium',
-      prix: 6750,
+      prix: 2750,
       description: 'Format A3 - 29.7x42cm',
       pages: 120,
       type: 'Papier grainé',
@@ -52,7 +52,7 @@ export class SupportsPage {
       nom: 'Support Agenda 2025',
       image: 'assets/img/support-agenda.jpg',
       qualite: 'Luxe',
-      prix: 8900,
+      prix: 3900,
       description: 'Format poche - 10x15cm',
       pages: 365,
       type: 'Couverture cuir',
@@ -107,7 +107,7 @@ export class SupportsPage {
 
   ajouterAuPanier(support: Support) {
     console.log('Ajout au panier :', support);
-    // TODO: Implémenter la logique réelle du panier
+    
   }
 
   getStars(note: number): string {

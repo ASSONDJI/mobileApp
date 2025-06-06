@@ -6,7 +6,7 @@
 
 <ion-content>
   <div class="supports-container">
-    <ion-card *ngFor="let support of supports" (click)="voirDetails(support)">
+    <ion-card *ngFor="let support of supports">
       <img [src]="support.image" [alt]="support.nom">
 
       <ion-card-content>
@@ -21,6 +21,14 @@
         </div>
 
         <div class="price">{{ support.prix | number }} FCFA</div>
+
+        <!-- Nouveau bouton Voir les détails -->
+        <ion-button
+          expand="block"
+          color="success"
+          (click)="voirDetails(support)">
+          Voir les détails
+        </ion-button>
 
         <ion-button
           expand="block"

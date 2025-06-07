@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; 
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { PanierService } from '../services/panier.service';  // <-- import du service
 
 @Component({
   selector: 'app-support-detail',
@@ -10,13 +12,17 @@ import { Router } from '@angular/router';
 export class SupportDetailPage {
   support: any;
   quantite = 1;
+  userRating = 0;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router, 
+    private alertCtrl: AlertController,
+    private panierService: PanierService  // <-- injection du service
+  ) {
     const nav = this.router.getCurrentNavigation();
     if (nav?.extras?.state?.['support']) {
       this.support = nav.extras.state['support'];
     } else {
-      // Redirection ou valeur par défaut si aucun support n'a été transmis
       this.support = {
         nom: 'Aucun support sélectionné',
         image: 'assets/imgs/not-found.png',
@@ -42,16 +48,34 @@ export class SupportDetailPage {
     }
   }
 
-  ajouterAuPanier() {
-    // Ici tu peux ajouter l’objet support avec la quantité sélectionnée
-    console.log('Ajout au panier:', this.support.nom, 'Quantité:', this.quantite);
+  setUserRating(rating: number) {
+    this.userRating = rating;
+    console.log(`Note donnée : ${rating}/5`);
+    localStorage.setItem(`note-${this.support.id}`, rating.toString());
   }
-  userRating: number = 0;
 
-setUserRating(rating: number) {
-  this.userRating = rating;
-  // Appelle une fonction pour sauvegarder l'avis (API, localStorage, etc.)
-  console.log(`Note donnée : ${rating}/5`);
-}
+  async ajouterAuPanier() {
+    if (this.quantite < 1) this.quantite = 1;
 
+    const produit = {
+      id: this.support.id,
+      nom: this.support.nom,
+      image: this.support.image,
+      quantite: this.quantite,
+      prix: this.support.prix,
+      total: this.quantite * this.support.prix
+    };
+
+    this.panierService.ajouterProduit(produit);
+
+    console.log('Ajouté au panier :', produit);
+
+    // Alerte après ajout
+    const alert = await this.alertCtrl.create({
+      header: 'Produit ajouté',
+      message: `${produit.nom} (x${produit.quantite}) a été ajouté au panier.`,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
 }

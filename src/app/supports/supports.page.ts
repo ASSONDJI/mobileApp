@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PanierService } from '../services/panier.service';  // <-- import du service
 
 export interface Support {
   id: number;
@@ -97,17 +98,17 @@ export class SupportsPage {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private panierService: PanierService) {}  // <-- injection du service
 
   voirDetails(support: Support) {
-  this.router.navigate(['/support-detail'], {
-    state: { support }
-  });
-}
+    this.router.navigate(['/support-detail'], {
+      state: { support }
+    });
+  }
 
   ajouterAuPanier(support: Support) {
     console.log('Ajout au panier :', support);
-    
+    this.panierService.ajouterProduit(support);  // <-- ajout au panier via service
   }
 
   getStars(note: number): string {

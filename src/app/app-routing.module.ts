@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'support-detail',
     loadChildren: () => import('./support-detail/support-detail.module').then( m => m.SupportDetailPageModule)
   },
+  {
+    path: 'panier',
+    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+  },
 
   
 

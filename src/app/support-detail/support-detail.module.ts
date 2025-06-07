@@ -8,12 +8,16 @@ import { SupportDetailPageRoutingModule } from './support-detail-routing.module'
 
 import { SupportDetailPage } from './support-detail.page';
 
+
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SupportDetailPageRoutingModule
+    SupportDetailPageRoutingModule,
+    SharedModule 
   ],
   declarations: [SupportDetailPage]
 })

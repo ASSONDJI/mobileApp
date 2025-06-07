@@ -7,6 +7,11 @@ ion-content {
   color: #1a1a1a;
   font-family: 'Segoe UI', sans-serif;
 }
+.note-user ion-icon.etoile {
+  color: gold;
+  font-size: 18px;
+  cursor: pointer;
+}
 
 .detail-container {
   display: flex;

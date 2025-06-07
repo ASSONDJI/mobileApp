@@ -1,3 +1,4 @@
+<app-header></app-header>
 <ion-content>
   <div class="detail-container">
 
@@ -23,11 +24,10 @@
       <!-- Bloc d’avis utilisateur -->
       <p><strong>Donner votre avis :</strong></p>
       <div class="note-user">
-        <ion-icon *ngFor="let star of [1,2,3,4,5]" [name]="star <= userRating ? 'star' : 'star-outline'"
-          (click)="setUserRating(star)" class="clickable-star">
-        </ion-icon>
-        <span class="selected-note" *ngIf="userRating > 0">({{ userRating }}/5)</span>
+        <ion-icon *ngFor="let star of [1, 2, 3, 4, 5]" [name]="userRating >= star ? 'star' : 'star-outline'"
+          (click)="setUserRating(star)" class="etoile"></ion-icon>
       </div>
+      
 
       <!-- Bloc prix / quantité -->
       <div class="prix-section">
